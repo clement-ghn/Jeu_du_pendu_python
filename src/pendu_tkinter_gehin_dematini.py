@@ -14,13 +14,13 @@ mots = ["arrosoir", "aristocrate", "attentat", "action","abricot", "alentour", "
 
 def Joueur_1():
     window.geometry("1000x800")#on crée la nouvelle fenetre, en retirant les elements de la page accueil (utilisation de destroy)
-    window.config(background='#FFBB6E')
+    window.config(background='white')
     frame.destroy()
     pendu_title.destroy()
     pendu_subtitle.destroy()
     
     global annonce#on crée un premier label, qui affiche le nombre d'essais restants
-    annonce = Label(window, width=8, font="Times 15 bold", text=0, bg='#FFBB6E')
+    annonce = Label(window, width=8, font="Times 15 bold", text=0, bg='white')
     annonce.pack(padx=5, pady=5)
     
     global compteur#On initialise le compteur d'erruers
@@ -39,18 +39,18 @@ def Joueur_1():
     secret = random.choice(mots)#on definit le mot à trouver avec un mot au hasard dans notre dictionnaire
     
     global mot_en_progres#Pour initialiser le jeu, on remplace chaque lettre du mot par des •, pour cacher notre mot
-    mot_en_progres = list("•" * len(secret))
+    mot_en_progres = list("⬛" * len(secret))
     rond = "".join(mot_en_progres)
 
     
     global lbl
-    lbl = Label(window, text=rond, font="Times 15 bold", bg='#FFBB6E', fg='white')#on affiche les ronds qui font la longueur du mot
+    lbl = Label(window, text=rond, font="Times 15 bold", bg='white', fg='black')#on affiche les ronds qui font la longueur du mot
     lbl.pack(padx=20, pady=20)
     
     ALPHA = "abcdefghijklmnopqrstuvwxyz"#ce sont les lettres sur lesquels on pourra cliquer
     
     for c in ALPHA:#on initialise les boutons, pour chaque lettre on crée un bouton
-        btn = Button(window, text=c, bg='#FFBB6E', fg='black')
+        btn = Button(window, text=c, bg='white', fg='black')
         btn.pack(side=LEFT, pady=10, padx=10)
         btn.bind("<Button-1>", choisir_lettre)#on fait interagir la souris avec les boutons lettres, dès que l'on clique dessus
     
@@ -62,18 +62,18 @@ def Joueur_1():
 
 def Joueur_2():
     window.geometry("500x300")#on crée la nouvelle fenetre, en retirant les elements de la page accueil, et on va créer la fenêtre dans laquelle le joueur va entrer son mot
-    window.config(background='#FFBB6E')
+    window.config(background='white')
     frame.destroy()
     pendu_title.destroy()
     pendu_subtitle.destroy()
     global L1
     global E1
-    L1 = Label(window,font="Lato 20", bg='#FFBB6E', text="Joueur 1, Choisissez le mot :")#on crée un label pour donner l'instruction
+    L1 = Label(window,font="Lato 20", bg='white', text="Joueur 1, Choisissez le mot :")#on crée un label pour donner l'instruction
     L1.pack(pady=20)
     global motsoumis
     E1 = Entry(window, bd =5)#on crée une zone d'entrée de texte
     E1.pack(pady=15)
-    motsoumis = Button(window, text = "Soumettre",font="Lato 10", bg='#FFBB6E',fg="black", command= soumettre)#on crée un bouton qui éxecute la fonction soumettre, en utilisant comme mot secret lle mot entré par l'utilisateur
+    motsoumis = Button(window, text = "Soumettre",font="Lato 10", bg='white',fg="black", command= soumettre)#on crée un bouton qui éxecute la fonction soumettre, en utilisant comme mot secret lle mot entré par l'utilisateur
     motsoumis.pack()
     
 
@@ -86,11 +86,11 @@ def soumettre():
     motsoumis.destroy()
    #Cette fenetre comporte les mêmes instruction que le mode joueur 1, sauf que le mot secret est le mot entré par l'utilisateur
     global phrase
-    phrase = Label(window, font="Lato 20", text="Joueur 2, à vous de jouer !", bg='#FFBB6E')
+    phrase = Label(window, font="Lato 20", text="Joueur 2, à vous de jouer !", bg='white')
     phrase.pack()
     
     global annonce
-    annonce = Label(window, width=8, font="Times 15 bold", text=0, bg='#FFBB6E')
+    annonce = Label(window, width=8, font="Times 15 bold", text=0, bg='white')
     annonce.pack(padx=5, pady=5)
     
     global compteur#On initialise le compteur d'erruers
@@ -109,18 +109,18 @@ def soumettre():
     secret = user#on definit le mot à trouver avec un mot au hasard dans notre dictionnaire
     
     global mot_en_progres
-    mot_en_progres = list("•" * len(secret))
+    mot_en_progres = list("⬛" * len(secret))
     rond = "".join(mot_en_progres)
 
     
     global lbl
-    lbl = Label(window, text=rond, font="Times 15 bold", bg='#FFBB6E', fg='white')#on affiche les étoiles qui font la longueur du mot
+    lbl = Label(window, text=rond, font="Times 15 bold", bg='white', fg='black')#on affiche les étoiles qui font la longueur du mot
     lbl.pack(padx=20, pady=20)
     
     ALPHA = "abcdefghijklmnopqrstuvwxyz"#ce sont les lettres sur lesquels on pourra cliquer
     
     for c in ALPHA:#on initialise les boutons
-        btn = Button(window, text=c, bg='#FFBB6E', fg='black')
+        btn = Button(window, text=c, bg='white', fg='black')
         btn.pack(side=LEFT, pady=10, padx=10)
         btn.bind("<Button-1>", choisir_lettre)#on fait interagir la souris avec les boutons lettres
     
@@ -132,25 +132,25 @@ window = Tk()#creer fenetre
 window.title("Pendu")#Nom de la fenetre
 window.minsize(360, 270)#taille minimale de la fenetre
 window.geometry("780x540")#taille de la fenetre qui apparait
-window.config(background='#FFBB6E')
+window.config(background='white')
 
-frame = Frame(window, bg='#FFBB6E')#creation de la frame
+frame = Frame(window, bg='white')#creation de la frame
 #premiere texte dans la fenetre
-pendu_title = Label(window, text="Bienvenue dans le jeu du pendu !", font =("Lato", 20), bg='#FFBB6E')
+pendu_title = Label(window, text="Bienvenue dans le jeu du pendu !", font =("Lato", 20), bg='white')
 pendu_title.pack(expand=YES )#position du texte
     
 #Deuxieme texte
-pendu_subtitle = Label(window, text="Choisissez votre mode de jeu :", font =("Lato", 15), bg='#FFBB6E', fg='white')
+pendu_subtitle = Label(window, text="Choisissez votre mode de jeu :", font =("Lato", 15), bg='white', fg='black')
 pendu_subtitle.pack(expand=YES)
     
 #Bouton 1 joueur
-joueursolo = Button(frame, text="1 joueur", font=("Lato", 18), bg='#FFBB6E', fg='white', command=Joueur_1)
+joueursolo = Button(frame, text="1 joueur", font=("Lato", 18), bg='white', fg='black', command=Joueur_1)
 joueursolo.pack()
     
 frame.pack(expand=YES)
     
 #Bouton 2 joueurs
-joueurmulti = Button(frame, text="2 joueurs", font=("Lato", 18), bg='#FFBB6E', fg='white', command=Joueur_2)
+joueurmulti = Button(frame, text="2 joueurs", font=("Lato", 18), bg='white', fg='black', command=Joueur_2)
 joueurmulti.pack()
 
 frame.pack(expand=YES)
@@ -192,13 +192,13 @@ def fin():
         window.destroy()
         defaite = Tk()
         defaite.geometry("500x350")
-        defaite.config(background='#FFBB6E')
-        frame = Frame(defaite, bg='#FFBB6E')
-        texte= Label(defaite, text="Défaite!", font =("Lato", 50), bg='#FFBB6E')
+        defaite.config(background='white')
+        frame = Frame(defaite, bg='white')
+        texte= Label(defaite, text="Défaite!", font =("Lato", 50), bg='white')
         montexte=StringVar()
         montexte.set(secret)#on met le mot secret dans une variable montexte
-        solution= Label(defaite, text="Le mot était :", font =("Lato", 12), bg='#FFBB6E')#on affiche le mot que le joueur devait trouver ( en affichant la variable montexte)
-        affichermot= Label(defaite, textvariable=montexte,  font =("Lato", 12,), bg='#FFBB6E', fg='red')
+        solution= Label(defaite, text="Le mot était :", font =("Lato", 12), bg='white')#on affiche le mot que le joueur devait trouver ( en affichant la variable montexte)
+        affichermot= Label(defaite, textvariable=montexte,  font =("Lato", 12,), bg='white', fg='red')
         canva_defaite = Canvas(defaite, bg='white', height=200, width=300)#on affiche le pendu en entier en cas de defaite dans un canva
         photodefaite=PhotoImage(file="Pendu.png")
         perdu = Label(canva_defaite, image=photodefaite, border=0)
@@ -213,13 +213,13 @@ def fin():
         window.destroy()#Sinon on affiche la fenetre de victoire
         victoire = Tk()
         victoire.geometry("500x290")
-        victoire.config(background='#FFBB6E')
-        frame = Frame(victoire, bg='#FFBB6E')
+        victoire.config(background='white')
+        frame = Frame(victoire, bg='black')
         montexte2=StringVar()
         montexte2.set(compteur)#cette fois la variable contient le nombre d'essais qu'il restait au joueur
-        phrase= Label(victoire, text="Votre nombre de tentatives restantes était :", font =("Lato", 12), bg='#FFBB6E')
-        coupsrestant= Label(victoire, textvariable=montexte2,  font =("Lato", 12,), bg='#FFBB6E', fg='red')
-        texte = Label(victoire, text="Victoire!", font =("Lato", 50), bg='#FFBB6E')
+        phrase= Label(victoire, text="Votre nombre de tentatives restantes était :", font =("Lato", 12), bg='white')
+        coupsrestant= Label(victoire, textvariable=montexte2,  font =("Lato", 12,), bg='white', fg='red')
+        texte = Label(victoire, text="Victoire!", font =("Lato", 50), bg='white')
         frame.pack(expand=YES)
         texte.pack(expand=YES)
         phrase.pack(expand=YES)
