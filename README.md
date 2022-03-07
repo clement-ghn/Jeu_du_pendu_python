@@ -14,7 +14,7 @@ Note : pour une utilisation optimale, utiliser avec Spyder.
 
 ## Version graphique
 
-[Le code suivant](https://github.com/clement-ghn/Jeu_du_pendu_python/blob/main/src/pendu_tkinter_gehin_dematini.py), qaunt à lui, est le code de la version finale, version graphique, de notre pendu.
+[Le code suivant](https://github.com/clement-ghn/Jeu_du_pendu_python/blob/main/src/pendu_tkinter_gehin_dematini.py), quant à lui, est le code de la version finale, version graphique, de notre pendu.
 
 Un aperçu est disponible [ici](https://www.clement-gehin.com/jeu_pendu.html).
 
