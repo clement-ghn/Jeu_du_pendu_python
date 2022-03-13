@@ -1,7 +1,8 @@
 # Jeu_du_pendu_python
 ### infos :
 Création d'un jeu du pendu grâce à Python et la librairie graphique Tkinter.
-
+Date de création : Octobre 2020
+Mise à jour en Mars 2022, afin d'améliorer le produit final
 
 ## Version non graphique
 
