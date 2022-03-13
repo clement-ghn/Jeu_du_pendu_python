@@ -8,8 +8,6 @@ Created on Fri Dec  4 21:28:32 2020
 from tkinter import *#on importe les modules nécessaire à la création de notre jeu
 import random
 
-mots = ["arrosoir", "aristocrate", "attentat", "action","abricot", "alentour", "analphabète", "alcool", "asticot", "animal", "bricolage","brebis", "bouton", "blanchir", "beurre", "boulette", "bélier","bleu", "blanchisserie","bourreau", "bureau", "collant" "cigarette", "cavalier", "carreau", "confinement", "coupure", "couteau", "clafoutis", "caramel", "coupable", "dessin", "desirable", "destin", "distant", "dedoubler", "discuter", "discours", "divin", "deposer", "décorer", "embeter", "enivrer", "esclave", "eprouver", "emballage", "epurer", "esperer", "evident", "essuyer", "effacer", "finale", "forteresse", "fortifier", "fouler", "finir", "fondant", "flouter", "fenouille", "festin", "futur", "gastronomie", "gaufre", "gouverner", "girafe", "gestion", "gouter", "grammaire", "gagner", "gourmand", "galactique", "habitation", "habit", "hippocampe", "hache", "haleine","halte", "hallucinant","hameconner", "handicap", "harceler", "ignoble", "irresistible", "inhabitable", "inespere", "irrespect", "illogique", "inoui", "interieur","inspecteur", "idiot", "impossible", "joie", "jouet", "juste", "jolie", "jouer", "jeu", "jouable", "jacuzzi", "jaloux", "jambe", "kiwi", "kayak", "karate", "karma", "kebab", "kangourou", "katana", "kayakiste", "kart", "karaoke", "lion", "livre", "lecture", "lycee", "lourd", "leger", "lisser", "lymphe", "laver", "larve", "mais", "mystere", "miserable", "mignon", "miroir", "mouton", "mangue", "mozambie", "moustique", "merveilleux", "nouveau", "nouvelle", "neon", "naissance", "novice", "noyau", "noyer", "nounours", "noeud", "nuage", "osculter", "ouvrir", "obese", "obligation", "obligatoire", "omelette", "oublier", "ours", "obstacle", "offrir", "pleuvoir", "pluie", "poussiere", "pousser", "pleurer", "pistolet", "poubelle", "promettre", "poussette", "pneu", "quiproquo", "qualifier", "quitter", "quittance", "quarantaine", "quiche", "qualite", "quartz", "quarante", "quart", "rateau", "rester", "redoutable", "rire", "regle", "risible", "rougir", "rouge", "rigoler", "retenir", "salive", "sable","saluer", "singe", "songe", "signer", "souffler", "sourire", "souris", "the", "tomate", "tisane", "trophee", "terrain", "tente", "tante", "tirer", "trou", "ulcere", "ultime", "ultra", "urbanisme", "un", "urgence", "usurpation", "utile", "utilite", "use", "violet", "voler", "volet", "voir", "venir", "viande", "vilain", "vacarme", "ver", "verre", "wagon", "web","wifi", "xylophone", "zizanie", "zone", "zoo"] 
-    #on crée un dictionnaire de mots
 
 
 def Joueur_1():
@@ -36,10 +34,12 @@ def Joueur_1():
 
 
     global secret
-    secret = random.choice(mots)#on definit le mot à trouver avec un mot au hasard dans notre dictionnaire
-    
+    secret = random.choice(open('liste_francais.txt').readlines())
+    print(secret)
+    secret = secret[:-1]
+    secret = secret.lower()#on definit le mot à trouver avec un mot au hasard dans notre dictionnaire
     global mot_en_progres#Pour initialiser le jeu, on remplace chaque lettre du mot par des •, pour cacher notre mot
-    mot_en_progres = list("⬛" * len(secret))
+    mot_en_progres = list("■" * (len(secret)))
     rond = "".join(mot_en_progres)
 
     
@@ -157,7 +157,7 @@ frame.pack(expand=YES)
 
 
 def maj_mot_en_progres(mot_en_progres, lettre, secret):#on défini une fonction qui affiche la lettre si elle est trouvée
-    n = len(secret)
+    n = (len(secret))
     solution=list(secret)
     for i in range(n):
         if secret[i] == lettre:#si la lettre sur laquelle on clique est dans le mot secret, on affiche la lettre
